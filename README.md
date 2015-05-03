@@ -3,7 +3,7 @@
 
 Currently supports the Estcard (estcard.ee) and IPizza (Swedbank, Seb, Danske, Nordea, Lhv, Krediidipank) protocols.
 
-The api is frozen and all future changes will be backwards compatible.
+The api is stable and all future changes will be backwards compatible.
 
 ### Current prorities (03.05.2015):
 * Documentation
