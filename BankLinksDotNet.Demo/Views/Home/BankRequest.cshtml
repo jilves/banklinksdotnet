@@ -1,0 +1,27 @@
+﻿@using BanklinksDotNet.ProviderBase
+@model BanklinksDotNet.ProviderBase.BankRequest
+@{
+    Layout = null;
+}
+<html>
+    <head>
+        <title></title>
+    </head>
+
+    <body onload="submitform()">
+        <form id="bankForm" name="bankForm" action="@Model.RequestUrl" method="post">
+            @foreach (BankMessageField field in Model.PostParameters)
+            {
+                <input type="hidden" name="@field.FieldName" value="@field.Value" />
+            }
+
+            <input type="submit" value="Liigu edasi panka .." />
+        </form>
+        
+        <script type="text/javascript">
+            function submitform() {
+                document.bankForm.submit();
+            }
+        </script>
+    </body>
+</html>

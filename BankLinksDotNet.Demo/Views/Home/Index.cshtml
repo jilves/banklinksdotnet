@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>GENIPIZZA Payment (1012)</h3>
+        <p>
+        </p>
+        <p>
+            @using (var form = Html.BeginForm("BankPayment", "Home", FormMethod.Post))
+            {
+                <input type="hidden" name="bankId" value="GENIPIZZA" />
+            <input type="submit" value="Pay!" class="btn btn-default" />
+            }
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h3>GENIPIZZA Auth (4012)</h3>
+        <p>
+        </p>
+        <p>
+            @using (var form = Html.BeginForm("BankAuth", "Home", FormMethod.Post))
+            {
+                <input type="hidden" name="bankId" value="GENIPIZZA" />
+                <input type="submit" value="Authenticate" class="btn btn-default" />
+            }
+        </p>
+    </div>
+</div>

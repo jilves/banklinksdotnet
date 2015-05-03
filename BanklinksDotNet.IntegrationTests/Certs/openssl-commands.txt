@@ -1,0 +1,11 @@
+// Create public key
+// openssl rsa -pubout -in user_key.pem -out public_key.pem
+
+// Create certificate request
+openssl req -out request.csr -key user_key.pem -new
+
+// Create self-signed cert
+openssl x509 -req -days 10000 -in request.csr -signkey user_key.pem -out merchant_cert.crt
+
+// Create PKCS#12 file
+openssl pkcs12 -export -inkey user_key.pem -in merchant_cert.crt -out merchant.pfx
