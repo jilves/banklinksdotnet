@@ -10,3 +10,5 @@ The api is frozen and all future changes will be backwards compatible.
 * Nuget packages for BanklinksDotNet, BanklinksDotNet.IPizzaProvider and BanklinksDotNet.EstcardProvider
 * Test coverage
 * Debugging
+
+Currently the best places to find code examples are the `BanklinksDotNet.IntegrationTests` and `BankLinksDotNet.Demo` projects.
