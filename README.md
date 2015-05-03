@@ -12,3 +12,5 @@ The api is frozen and all future changes will be backwards compatible.
 * Debugging
 
 Currently the best places to find code examples are the `BanklinksDotNet.IntegrationTests` and `BankLinksDotNet.Demo` projects.
+
+## Licensed under MIT
