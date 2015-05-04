@@ -22,7 +22,7 @@ namespace BanklinksDotNet
             string macInput = _calculatorConfig.CreateMacInput(bankMessage);
             X509Certificate2 certificate = _bankConfig.BanksPublicCertificate();
 
-            byte[] signatureBytes = _calculatorConfig.StringToBinary(mac);
+            byte[] signatureBytes = _calculatorConfig.StringToBytes(mac);
             byte[] macInputBytes = Encoding.GetEncoding(encoding).GetBytes(macInput);
 
             using (var rsaProvider = (RSACryptoServiceProvider)certificate.PublicKey.Key)
@@ -39,7 +39,7 @@ namespace BanklinksDotNet
             byte[] bytes = Encoding.GetEncoding(encoding).GetBytes(macInput);
             using (var rsaProvider = (RSACryptoServiceProvider)certificate.PrivateKey)
             {
-                return _calculatorConfig.BinaryToString(rsaProvider.SignData(bytes, "SHA1"));
+                return _calculatorConfig.BytesToString(rsaProvider.SignData(bytes, "SHA1"));
             }
         }
     }

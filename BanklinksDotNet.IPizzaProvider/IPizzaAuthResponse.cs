@@ -28,7 +28,7 @@ namespace BanklinksDotNet.IPizzaProvider
 
                 TimeSpan difference = now - requestDateTime;
 
-                return difference.Minutes < 5;
+                return difference.TotalMinutes < 5;
             }
         }
 

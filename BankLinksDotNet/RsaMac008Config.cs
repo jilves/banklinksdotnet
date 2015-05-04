@@ -8,12 +8,12 @@ namespace BanklinksDotNet
 {
     public class RsaMac008Config : IRsaMacCalculatorConfig
     {
-        public string BinaryToString(byte[] binaryData)
+        public string BytesToString(byte[] binaryData)
         {
             return Convert.ToBase64String(binaryData);
         }
 
-        public byte[] StringToBinary(string stringData)
+        public byte[] StringToBytes(string stringData)
         {
             return Convert.FromBase64String(stringData);
         }

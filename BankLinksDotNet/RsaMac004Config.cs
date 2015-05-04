@@ -7,12 +7,12 @@ namespace BanklinksDotNet
 {
     public class RsaMac004Config : IRsaMacCalculatorConfig
     {
-        public string BinaryToString(byte[] binaryData)
+        public string BytesToString(byte[] binaryData)
         {
             return string.Join(string.Empty, binaryData.Select(b => b.ToString("X2")));
         }
 
-        public byte[] StringToBinary(string stringData)
+        public byte[] StringToBytes(string stringData)
         {
             var signedBytes = new byte[stringData.Length / 2];
             for (int i = 0; i < signedBytes.Length; i++)

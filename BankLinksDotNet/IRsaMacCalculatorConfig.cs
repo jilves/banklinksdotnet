@@ -5,8 +5,8 @@ namespace BanklinksDotNet
 {
     public interface IRsaMacCalculatorConfig
     {
-        string BinaryToString(byte[] binaryData);
-        byte[] StringToBinary(string stringData);
+        string BytesToString(byte[] binaryData);
+        byte[] StringToBytes(string stringData);
         string CreateMacInput(IEnumerable<BankMessageField> bankMessage);
     }
 }
