@@ -13,4 +13,4 @@ The api is stable and all future changes will be backwards compatible.
 
 The best places to find code examples are the `BanklinksDotNet.IntegrationTests` and `BankLinksDotNet.Demo` projects.
 
-## Licensed under MIT
+Licensed under MIT
