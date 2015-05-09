@@ -18,6 +18,8 @@ The BanklinksDotNet library defines a generic interface and the providers add co
 
 ## Quick introduction
 
+You can use the [Pangalink.net](http://pangalink.net/) application to test the library.
+
 ### Setup
 ```
 _banklinkApi = new BanklinkApi();
@@ -139,8 +141,6 @@ EstcardPaymentResponse response3 = _bankLinkApi.ParseEstcardPaymentResponse(para
 ```
 
 If the response Mac is invalid, an `InvalidMacException` is thrown. 
-
-You can use the [Pangalink.net](http://pangalink.net/) application to test the library.
 
 See `BanklinksDotNet.IntegrationTests` and `BankLinksDotNet.Demo` for more code samples though tests and the demo project are currently lacking.
 
