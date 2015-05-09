@@ -20,8 +20,8 @@ The BanklinksDotNet library defines a generic interface and the providers add co
 
 ### Setup
 ```
-BanklinkApi banklinkApi = new BanklinkApi();
-banklinkApi.Configure()
+_banklinkApi = new BanklinkApi();
+_banklinkApi.Configure()
   .AddIPizzaBankProvider()
   .AddEstcardProvider()
   .AddIPizzaBankConfigurations(new IPizzaConfiguration
