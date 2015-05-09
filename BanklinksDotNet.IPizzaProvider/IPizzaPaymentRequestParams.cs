@@ -6,6 +6,7 @@ namespace BanklinksDotNet.IPizzaProvider
     // ReSharper disable once InconsistentNaming
     public class IPizzaPaymentRequestParams : AbstractRequestParams
     {
+        public virtual string BankId { get; set; }
         /// <summary>
         /// Required (VK_STAMP).
         /// </summary>

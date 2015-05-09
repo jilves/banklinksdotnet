@@ -6,6 +6,7 @@ namespace BanklinksDotNet.IPizzaProvider
     // ReSharper disable once InconsistentNaming
     public class IPizzaAuthRequestParams : AbstractRequestParams
     {
+        public virtual string BankId { get; set; }
         /// <summary>
         /// Optional (VK_LANG). Defaults to EST (Estonian).
         /// </summary>

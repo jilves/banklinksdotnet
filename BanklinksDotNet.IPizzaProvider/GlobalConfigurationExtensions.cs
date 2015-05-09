@@ -18,7 +18,7 @@ namespace BanklinksDotNet.IPizzaProvider
             return configuration.AddBankConfiguration(bankConfiguration);
         }
 
-        public static IGlobalConfiguration AddIPizzaBankConfigurations(this IGlobalConfiguration configuration, IEnumerable<IPizzaConfiguration> bankConfigurations)
+        public static IGlobalConfiguration AddIPizzaBankConfigurations(this IGlobalConfiguration configuration, params IPizzaConfiguration[] bankConfigurations)
         {
             return configuration.AddBankConfigurations(bankConfigurations);
         }

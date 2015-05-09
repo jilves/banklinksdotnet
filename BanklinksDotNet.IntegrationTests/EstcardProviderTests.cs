@@ -38,8 +38,7 @@ namespace BanklinksDotNet.IntegrationTests
                 TransactionDateTime = DateTime.ParseExact("20140217154349", "yyyyMMddHHmmss", CultureInfo.InvariantCulture),
                 Language = "en",
                 RequestEncoding = "utf-8",
-                TransactionNr = 1392644629,
-                BankId = "estcard"
+                TransactionNr = 1392644629
             });
 
             Assert.AreEqual("http://localhost:8080/banklink/ec", bankRequest.RequestUrl);
