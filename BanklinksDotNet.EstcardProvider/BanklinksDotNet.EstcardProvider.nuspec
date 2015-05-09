@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>jilves</authors>
+    <owners>jilves</owners>
+    <licenseUrl>https://github.com/jilves/banklinksdotnet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jilves/banklinksdotnet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Estcard provider for BanklinksDotNet.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags></tags>
+    <dependencies>
+        <dependency id="BanklinksDotNet" version="1.0" />
+    </dependencies>
+</metadata>
+</package>

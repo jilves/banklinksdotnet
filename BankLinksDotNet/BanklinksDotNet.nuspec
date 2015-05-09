@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>jilves</authors> <!-- The replacement token 'author' has no value.  -->
+    <owners>jilves</owners>
+    <licenseUrl>https://github.com/jilves/banklinksdotnet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jilves/banklinksdotnet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET library for integrating Estonian bank link services.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags></tags>
+  </metadata>
+</package>
