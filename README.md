@@ -89,7 +89,7 @@ BankRequest bankRequest2 = _banklinkApi.CreateIPizzaAuthRequest(new IPizzaAuthRe
 });
 ```
 
-### One way to post the parameters in an ASP.NET MVC app
+### Post the parameters in an ASP.NET MVC app
 
 ```
 @using BanklinksDotNet.ProviderBase
@@ -137,6 +137,8 @@ var response2 = _bankLinkApi.ParseIPizzaAuthResponse(parameters);
 var response3 = _bankLinkApi.ParseEstcardPaymentResponse(parameters);
 
 ```
+
+You can use the [Pangalink.net](http://pangalink.net/) application to test the library.
 
 See `BanklinksDotNet.IntegrationTests` and `BankLinksDotNet.Demo` for more code samples though tests and the demo project are currently lacking.
 
