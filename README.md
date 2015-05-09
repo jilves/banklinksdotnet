@@ -132,9 +132,9 @@ if (abstractBankResponse is IPizzaAuthResponse) { ... }
 
 // Or if you know which response you are accepting at the current route:
 
-var response = _bankLinkApi.ParseIPizzaPaymentResponse(parameters);
-var response2 = _bankLinkApi.ParseIPizzaAuthResponse(parameters);
-var response3 = _bankLinkApi.ParseEstcardPaymentResponse(parameters);
+IPizzaPaymentResponse response = _bankLinkApi.ParseIPizzaPaymentResponse(parameters);
+IPizzaAuthResponse response2 = _bankLinkApi.ParseIPizzaAuthResponse(parameters);
+EstcardPaymentResponse response3 = _bankLinkApi.ParseEstcardPaymentResponse(parameters);
 
 ```
 
