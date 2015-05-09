@@ -33,7 +33,7 @@ namespace BanklinksDotNet.EstcardProvider
             EstcardPaymentResponse bankPaymentResponse)
         {
             List<BankMessageField> postParameters = bankPaymentResponse.PostParameters.ToList();
-            _basicMessageFieldFinder.MapResponseParamsToMessageFields(postParameters, responseParameters);
+            _basicMessageFieldFinder.MapResponseParamsToMessageFields(responseParameters, postParameters);
 
             VerifyResponseMac(bankConfiguration, postParameters);
 

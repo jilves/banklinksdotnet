@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanklinksDotNet.EstcardProv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanklinksDotNet.UnitTests", "BanklinksDotNet.UnitTests\BanklinksDotNet.UnitTests.csproj", "{5EC6AB3B-6A5F-44C4-9E46-10A07C56C0CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanklinksDotNet.IPizzaProvider.UnitTests", "BanklinksDotNet.IPizzaProvider.UnitTests\BanklinksDotNet.IPizzaProvider.UnitTests.csproj", "{F7063169-2A22-409F-A85C-6309420F04B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{5EC6AB3B-6A5F-44C4-9E46-10A07C56C0CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EC6AB3B-6A5F-44C4-9E46-10A07C56C0CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EC6AB3B-6A5F-44C4-9E46-10A07C56C0CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7063169-2A22-409F-A85C-6309420F04B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7063169-2A22-409F-A85C-6309420F04B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7063169-2A22-409F-A85C-6309420F04B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7063169-2A22-409F-A85C-6309420F04B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

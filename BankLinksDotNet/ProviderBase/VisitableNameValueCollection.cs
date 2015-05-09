@@ -4,6 +4,11 @@ namespace BanklinksDotNet.ProviderBase
 {
     public class VisitableNameValueCollection : NameValueCollection, IVisitable
     {
+        public VisitableNameValueCollection()
+        {
+            
+        }
+
         public VisitableNameValueCollection(NameValueCollection nameValueCollection) : base(nameValueCollection)
         {
            

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
@@ -12,11 +13,13 @@ namespace BanklinksDotNet.IPizzaProvider
     {
         private readonly MacCalculatorFactory _macCalculatorFactory;
         private readonly BasicMessageFieldFinder _basicMessageFieldFinder;
+        private readonly TimeProvider _timeProvider;
 
-        public IPizzaMessageMapper(BasicMessageFieldFinder basicMessageFieldFinder, MacCalculatorFactory macCalculatorFactory)
+        public IPizzaMessageMapper(BasicMessageFieldFinder basicMessageFieldFinder, MacCalculatorFactory macCalculatorFactory, TimeProvider timeProvider)
         {
             _macCalculatorFactory = macCalculatorFactory;
             _basicMessageFieldFinder = basicMessageFieldFinder;
+            _timeProvider = timeProvider;
         }
 
         public void SetRequestMac(string encoding, IPizzaConfiguration bankConfiguration, List<BankMessageField> bankMessageFields)
@@ -29,31 +32,13 @@ namespace BanklinksDotNet.IPizzaProvider
             bankMessageFields.First(messageField => messageField.FieldName == "VK_MAC").Value = mac;
         }
 
-        private class BankResponseWrapper : IVisitable
-        {
-            public BankResponseWrapper(NameValueCollection responseParameters)
-            {
-                
-            }
-
-            public BankResponseWrapper(HttpRequest response)
-            {
-                
-            }
-
-            public void Accept(IVisitor visitor)
-            {
-                
-            }
-        }
-
         public void SetPaymentResponseProperties(VisitableNameValueCollection responseParameters,
             IPizzaConfiguration bankConfiguration,
             IPizzaPaymentResponse bankPaymentResponse)
         {
             List<BankMessageField> messageFields = bankPaymentResponse.PostParameters.ToList();
 
-            _basicMessageFieldFinder.MapResponseParamsToMessageFields(messageFields, responseParameters);
+            _basicMessageFieldFinder.MapResponseParamsToMessageFields(responseParameters, messageFields);
 
             VerifyResponseMac(bankConfiguration, messageFields);
             bankPaymentResponse.IsAutomaticResponse = _basicMessageFieldFinder.FindOrDefault("VK_AUTO", messageFields) == "Y";
@@ -81,7 +66,7 @@ namespace BanklinksDotNet.IPizzaProvider
         {
             List<BankMessageField> messageFields = bankAuthResponse.PostParameters.ToList();
 
-            _basicMessageFieldFinder.MapResponseParamsToMessageFields(messageFields, responseParameters);
+            _basicMessageFieldFinder.MapResponseParamsToMessageFields(responseParameters, messageFields);
 
             VerifyResponseMac(bankConfiguration, messageFields);
 
@@ -92,12 +77,29 @@ namespace BanklinksDotNet.IPizzaProvider
             bankAuthResponse.Country = _basicMessageFieldFinder.FindOrDefault("VK_COUNTRY", messageFields);
             bankAuthResponse.Language = _basicMessageFieldFinder.FindOrDefault("VK_LANG", messageFields);
             bankAuthResponse.Other = _basicMessageFieldFinder.FindOrDefault("VK_OTHER", messageFields);
+
             // ReSharper disable once PossibleInvalidOperationException
             // Request datetime always exists for auth responses 
-            bankAuthResponse.RequestDateTime = _basicMessageFieldFinder.FindOrDefaultDateTime("VK_DATETIME", bankConfiguration.DateTimeFormat, messageFields).Value;
+            DateTime requestGeneratedAt = _basicMessageFieldFinder.FindOrDefaultDateTime("VK_DATETIME", bankConfiguration.DateTimeFormat, messageFields).Value;
+
+            bankAuthResponse.RequestDateTime = requestGeneratedAt;
+            bankAuthResponse.IsRequestDateTimeValid = IsRequestDateTimeValid(requestGeneratedAt, _timeProvider.Now);
+
             bankAuthResponse.RequestEncoding = _basicMessageFieldFinder.FindOrDefault("VK_ENCODING", messageFields);
             bankAuthResponse.RequestId = _basicMessageFieldFinder.FindOrDefault("VK_RID", messageFields);
             bankAuthResponse.Token = _basicMessageFieldFinder.FindOrDefault("VK_TOKEN", messageFields);
+        }
+
+        private bool IsRequestDateTimeValid(DateTime requestDateTime, DateTime systemDateTime)
+        {
+            var systemDateTimeUtc = systemDateTime.ToUniversalTime();
+            var requestDateTimeUtc = requestDateTime.ToUniversalTime();
+
+            TimeSpan difference = systemDateTimeUtc - requestDateTimeUtc;
+
+            double absoluteDifferenceInMinutes = Math.Abs(difference.TotalMinutes);
+
+            return 5 >= absoluteDifferenceInMinutes;
         }
 
         private void VerifyResponseMac(IPizzaConfiguration bankConfiguration, List<BankMessageField> bankMessageFields)

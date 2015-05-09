@@ -61,8 +61,7 @@ namespace BanklinksDotNet
             return decimal.Parse(value, decimalFormatProvider);
         }
 
-        // TODO: Switch parameter positioning. Containers go to the end.
-        public void MapResponseParamsToMessageFields(IEnumerable<BankMessageField> bankMessagefields, VisitableNameValueCollection visitable)
+        public void MapResponseParamsToMessageFields(VisitableNameValueCollection visitable, IEnumerable<BankMessageField> bankMessagefields)
         {
             foreach (BankMessageField bankMessageField in bankMessagefields)
             {

@@ -15,22 +15,10 @@ namespace BanklinksDotNet.IPizzaProvider
 
         public DateTime RequestDateTime { get; internal set; }
 
-        // TODO: Must have test coverage
         /// <summary>
         /// Returns true, if RequestDateTime falls into +- 5 minute range
         /// </summary>
-        public bool IsRequestDateTimeValid
-        {
-            get
-            {
-                DateTime now = DateTime.Now.ToUniversalTime();
-                DateTime requestDateTime = RequestDateTime.ToUniversalTime();
-
-                TimeSpan difference = now - requestDateTime;
-
-                return difference.TotalMinutes < 5;
-            }
-        }
+        public bool IsRequestDateTimeValid { get; internal set; }
 
         public string BankId { get; internal set; }
         public string RequestId { get; internal set; }

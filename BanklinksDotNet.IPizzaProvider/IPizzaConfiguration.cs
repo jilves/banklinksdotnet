@@ -38,6 +38,8 @@ namespace BanklinksDotNet.IPizzaProvider
         public IPizzaConfiguration()
         {
             // TODO: This will fail for half hour time zones. Find a proper solution.
+            // Apparently .NET's DateTime parse can select the right format based on the input value.
+            // Maybe use that for datetimes?
             DateTimeFormat = "yyyy-MM-ddTHH:mm:sszz00";
             DecimalFormat = new NumberFormatInfo
             {

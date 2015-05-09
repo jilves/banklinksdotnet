@@ -6,7 +6,11 @@ namespace BanklinksDotNet.IPizzaProvider
     {
         public static IGlobalConfiguration AddIPizzaBankProvider(this IGlobalConfiguration configuration)
         {
-            return configuration.AddBankProvider(new IPizzaBankProvider(new IPizzaMessageMapper(new BasicMessageFieldFinder(), new MacCalculatorFactory())));
+            var ipizzaMessageMapper = new IPizzaMessageMapper(new BasicMessageFieldFinder(), 
+                new MacCalculatorFactory(),
+                new TimeProvider());;
+
+            return configuration.AddBankProvider(new IPizzaBankProvider(ipizzaMessageMapper));
         }
 
         public static IGlobalConfiguration AddIPizzaBankConfiguration(this IGlobalConfiguration configuration, IPizzaConfiguration bankConfiguration)

@@ -12,7 +12,7 @@ namespace BanklinksDotNet.ProviderBase
 
         public override string ToString()
         {
-            // TODO: Give all BanklinksDotNet object serialized ToString()-s?
+            // TODO: Give all BanklinksDotNet dto objects json serialized ToString()-s?
             return new JavaScriptSerializer().Serialize(this);
         }
     }
