@@ -67,15 +67,15 @@ namespace BanklinksDotNet.IPizzaProvider.UnitTests
         [TestCase("2015-04-04T16:05:00+0300", "2015-04-04T16:00:00+0300", true, TestName = "generation date = current time +5 minutes")]
         [TestCase("2015-04-04T15:55:00+0300", "2015-04-04T16:00:00+0300", true, TestName = "generation date = current time -5 minutes")]
         [TestCase("2015-04-04T15:56:46+0300", "2015-04-04T16:00:00+0300", true, TestName = "generation date = current time - 3 minutes and 14 seconds")]
-        [TestCase("2015-04-04T16:06:00+0300", "2015-04-04T16:00:00+0300", false, TestName = "generation date = current time +6 minutes")]
-        [TestCase("2015-04-04T15:53:50+0300", "2015-04-04T16:00:00+0300", false, TestName = "generation date = current time -6 minutes 10 seconds")]
+        [TestCase("2015-04-04T16:05:01+0300", "2015-04-04T16:00:00+0300", false, TestName = "generation date = current time +5 minutes and 1 second")]
+        [TestCase("2015-04-04T15:54:59+0300", "2015-04-04T16:00:00+0300", false, TestName = "generation date = current time -5 minutes and 1 second")]
 
         // Same differences between times as the test cases above, but with different time zones.
         [TestCase("2015-04-04T18:05:00+0400", "2015-04-04T16:00:00+0200", true, TestName = "Different time zones. generation date = current time +5 minutes")]
         [TestCase("2015-04-04T16:55:00+0200", "2015-04-04T16:00:00+0100", true, TestName = "Different time zones. generation date = current time -5 minutes")]
         [TestCase("2015-04-04T15:56:46+0300", "2015-04-04T17:00:00+0400", true, TestName = "Different time zones. generation date = current time - 3 minutes and 14 seconds")]
-        [TestCase("2015-04-04T16:06:00+0500", "2015-04-04T16:00:00+0500", false, TestName = "Different time zones. generation date = current time +6 minutes")]
-        [TestCase("2015-04-04T19:53:50+0100", "2015-04-04T16:00:00+0500", false, TestName = "Different time zones. generation date = current time -6 minutes 10 seconds")]
+        [TestCase("2015-04-04T16:05:01+0500", "2015-04-04T16:00:00+0500", false, TestName = "Different time zones. generation date = current time +5 minutes and 1 second")]
+        [TestCase("2015-04-04T19:54:59+0100", "2015-04-04T16:00:00+0500", false, TestName = "Different time zones. generation date = current time -5 minutes and 1 second")]
         public void SetAuthResponseProperties_Sets_IsRequestDateTimeValid_True_If_Request_Generation_DateTime_Is_In_5_Minute_Range
             (string authResponseGenerationDateTime, string currentDateTime, bool expectedIsResponseValid)
         {
