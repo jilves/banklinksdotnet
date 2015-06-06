@@ -4,8 +4,8 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>jilves</authors>
-    <owners>jilves</owners>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
     <licenseUrl>https://github.com/jilves/banklinksdotnet/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/jilves/banklinksdotnet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
