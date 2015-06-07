@@ -14,7 +14,7 @@
     <copyright>Copyright 2015</copyright>
     <tags></tags>
     <dependencies>
-        <dependency id="BanklinksDotNet" version="1.0" />
+        <dependency id="BanklinksDotNet" version="" />
     </dependencies>
 </metadata>
 </package>
