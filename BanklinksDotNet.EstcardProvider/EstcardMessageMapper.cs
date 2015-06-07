@@ -52,6 +52,7 @@ namespace BanklinksDotNet.EstcardProvider
             bankPaymentResponse.IsPaymentSuccessful = respCode == "000";
         }
 
+        // TODO: Nearly identical with IPizzaMessageMapper.VerifyResponseMac
         private void VerifyResponseMac(EstcardConfiguration bankConfiguration, List<BankMessageField> bankMessageFields)
         {
             string macVersion = _basicMessageFieldFinder.FindOrDefault("ver", bankMessageFields);

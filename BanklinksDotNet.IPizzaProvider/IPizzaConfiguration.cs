@@ -6,7 +6,7 @@ using BanklinksDotNet.ProviderBase;
 namespace BanklinksDotNet.IPizzaProvider
 {
     // ReSharper disable once InconsistentNaming
-    public class IPizzaConfiguration : IPkiBankConfiguration
+    public class IPizzaConfiguration : AbstractBankConfiguration, IPkiBankConfiguration
     {
         public string PaymentServiceUrl { get; set; }
         public string AuthServiceUrl { get; set; }

@@ -1,6 +1,4 @@
 ﻿using System.Collections.Specialized;
-using System.Linq;
-using System.Web;
 using BanklinksDotNet.ProviderBase;
 
 namespace BanklinksDotNet.EstcardProvider

@@ -9,30 +9,30 @@ namespace BanklinksDotNet
 {
     public class BanklinkApi : IBanklinkApi
     {
-        private readonly IGlobalConfiguration _config;
+        private readonly ConfigurationEnforcer _configEnforcer;
         private readonly HttpParameterParser _httpParameterParser;
 
         public BanklinkApi()
-            : this(new GlobalConfiguration(), new HttpParameterParser())
+            : this(new ConfigurationEnforcer(new GlobalConfiguration(), new Validator()), new HttpParameterParser())
         {
             
         }
 
-        public BanklinkApi(IGlobalConfiguration config, HttpParameterParser httpParameterParser)
+        public BanklinkApi(ConfigurationEnforcer configEnforcer, HttpParameterParser httpParameterParser)
         {
-            _config = config;
+            _configEnforcer = configEnforcer;
             _httpParameterParser = httpParameterParser;
         }
 
         public IGlobalConfiguration Configure()
         {
-            return _config;
+            return _configEnforcer.GlobalConfiguration;
         }
 
         public BankRequest CreateBankRequest(AbstractRequestParams paymentRequestParams)
         {
-            List<IVisitor> requestVisitors = _config.BankProviders
-                .SelectMany(provider => provider.CreateTransientRequestVisitors(_config))
+            List<IVisitor> requestVisitors = Configure().BankProviders
+                .SelectMany(provider => provider.CreateTransientRequestVisitors(Configure()))
                 .ToList();
 
             return (BankRequest)FindVisitorResult(requestVisitors, paymentRequestParams);
@@ -40,8 +40,8 @@ namespace BanklinksDotNet
 
         public AbstractBankResponse ParseBankResponse(NameValueCollection bankResponse)
         {
-            List<IVisitor> responseVisitors = _config.BankProviders
-                .SelectMany(provider => provider.CreateTransientResponseVisitors(_config))
+            List<IVisitor> responseVisitors = Configure().BankProviders
+                .SelectMany(provider => provider.CreateTransientResponseVisitors(Configure()))
                 .ToList();
 
             return (AbstractBankResponse)FindVisitorResult(responseVisitors, new VisitableNameValueCollection(bankResponse));
@@ -52,15 +52,19 @@ namespace BanklinksDotNet
             return ParseBankResponse(_httpParameterParser.GetRequestParameters(bankResponse, encoding));
         }
 
-        private static object FindVisitorResult(IEnumerable<IVisitor> visitors, IVisitable visitable)
+        private IBankMessage FindVisitorResult(IEnumerable<IVisitor> visitors, IVisitable visitable)
         {
             foreach (IVisitor visitor in visitors)
             {
                 visitable.Accept(visitor);
-                if (visitor.IsHandled)
+                if (!visitor.IsHandled)
                 {
-                    return visitor.Result;
+                    continue;
                 }
+
+                _configEnforcer.EnforceFieldLengthValidation(visitor);
+
+                return visitor.Result;
             }
 
             throw new ProviderMissingException();

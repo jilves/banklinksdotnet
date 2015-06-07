@@ -6,16 +6,20 @@ namespace BanklinksDotNet
 {
     public class GlobalConfiguration : IGlobalConfiguration
     {
-        private readonly List<object> _bankConfigurations;
+        private readonly List<AbstractBankConfiguration> _bankConfigurations;
         private readonly List<AbstractBankProvider> _bankProviders;
 
         public IEnumerable<AbstractBankProvider> BankProviders { get { return _bankProviders.AsReadOnly(); } }
-        public IEnumerable<object> BankConfigurations { get { return _bankConfigurations.AsReadOnly(); } }
+        public IEnumerable<AbstractBankConfiguration> BankConfigurations { get { return _bankConfigurations.AsReadOnly(); } }
+        public bool EnableFieldLengthValidation { get; set; }
 
         public GlobalConfiguration()
         {
-            _bankConfigurations = new List<object>();
+            _bankConfigurations = new List<AbstractBankConfiguration>();
             _bankProviders = new List<AbstractBankProvider>();
+
+            // TODO: Unit test
+            EnableFieldLengthValidation = true;
         }
 
         public IGlobalConfiguration AddBankProvider(AbstractBankProvider provider)
@@ -32,14 +36,14 @@ namespace BanklinksDotNet
             return this;
         }
 
-        public IGlobalConfiguration AddBankConfiguration(object bankConfiguration)
+        public IGlobalConfiguration AddBankConfiguration(AbstractBankConfiguration bankConfiguration)
         {
             _bankConfigurations.Add(bankConfiguration);
 
             return this;
         }
 
-        public IGlobalConfiguration AddBankConfigurations(IEnumerable<object> bankConfigurations)
+        public IGlobalConfiguration AddBankConfigurations(IEnumerable<AbstractBankConfiguration> bankConfigurations)
         {
             _bankConfigurations.AddRange(bankConfigurations);
 

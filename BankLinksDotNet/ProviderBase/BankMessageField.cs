@@ -1,6 +1,4 @@
-﻿using System.Web.Script.Serialization;
-
-namespace BanklinksDotNet.ProviderBase
+﻿namespace BanklinksDotNet.ProviderBase
 {
     public class BankMessageField
     {
@@ -12,8 +10,7 @@ namespace BanklinksDotNet.ProviderBase
 
         public override string ToString()
         {
-            // TODO: Give all BanklinksDotNet dto objects json serialized ToString()-s?
-            return new JavaScriptSerializer().Serialize(this);
+            return Serializer.ObjectToJson(this);
         }
     }
 }

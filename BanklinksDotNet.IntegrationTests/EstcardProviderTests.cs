@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using BanklinksDotNet.EstcardProvider;
+using BanklinksDotNet.Exceptions;
 using BanklinksDotNet.ProviderBase;
 using NUnit.Framework;
 
@@ -54,6 +55,21 @@ namespace BanklinksDotNet.IntegrationTests
             bankRequest.AssertFieldValueEqualTo("delivery", "S");
             bankRequest.AssertFieldValueEqualTo("charEncoding", "utf-8");
             bankRequest.AssertFieldValueEqualTo("mac", "6E519E71A0403F1A528A4433D89CDEC413B8018A5471E98E0224AD9135C4AA9E3AF6C4635E06CD855E9CEAA7672FB14CA25E542DFEC83840C2D35D078CF7C02F55CEF1ED73F462DD404E141E38E3877ECA287E751469EBD1C20F4E35E77F4751F99688421A5E909D6CBD7208D4F1EAA8BC7F598ACFFAC11D8B7343B0FED592906E37D160AB4A5C3E263459D1FAFD849E242FC2BDF7F9450AA030D1DF1A1A836E64FBA3B2607C030DC4F4976249ED195D578A3DB16FB65D4C158F64A4215F4C150EA6B51DC32164DDE29B61D0FA0F711B731D11B3FB37AAF8D423D871C1122F0AAF11781F4CC078C39EEDE5DD56C14C4F651D7F347C3FF7405C5EAD074A4EB51A");
+        }
+
+        [Test]
+        [ExpectedException(typeof(FieldLengthOutOfRangeException))]
+        public void CreateEstcardPaymentRequest_Throws_When_Field_Length_Is_Too_Big()
+        {
+            _banklinkApi.CreateEstcardPaymentRequest(new EstcardPaymentRequestParams
+            {
+                AmountInCents = 1336,
+                ReturnUrl = "http://localhost:8080/project/mJltvgDF1boyOPpL?payment_action=success",
+                TransactionDateTime = DateTime.ParseExact("20140217154349", "yyyyMMddHHmmss", CultureInfo.InvariantCulture),
+                Language = "ENG", // Max len of 2
+                RequestEncoding = "utf-8",
+                TransactionNr = 1392644629
+            });
         }
 
         [Test]

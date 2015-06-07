@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationEnforcer.cs" />
     <Compile Include="HttpParameterParser.cs" />
+    <Compile Include="ProviderBase\AbstractBankConfiguration.cs" />
     <Compile Include="ProviderBase\IPkiBankConfiguration.cs" />
     <Compile Include="RsaMacCalculator.cs" />
     <Compile Include="BasicMessageFieldFinder.cs" />
@@ -84,7 +86,9 @@
     <Compile Include="ProviderBase\IVisitable.cs" />
     <Compile Include="ProviderBase\IVisitor.cs" />
     <Compile Include="ProviderBase\VisitableNameValueCollection.cs" />
+    <Compile Include="Serializer.cs" />
     <Compile Include="TimeProvider.cs" />
+    <Compile Include="Validator.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

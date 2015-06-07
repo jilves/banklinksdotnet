@@ -1,5 +1,4 @@
 ﻿using System.Collections.Specialized;
-using System.Web;
 using BanklinksDotNet.ProviderBase;
 
 namespace BanklinksDotNet.IPizzaProvider

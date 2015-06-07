@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BanklinksDotNet.IPizzaProvider
+﻿namespace BanklinksDotNet.IPizzaProvider
 {
     public static class GlobalConfigurationExtensions
     {
