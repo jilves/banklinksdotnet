@@ -149,4 +149,4 @@ See `BanklinksDotNet.IntegrationTests` and `BankLinksDotNet.Demo` for more code 
 http://pangaliit.ee/images/files/Pangalingi_tehniline_spetsifikatsioon_2014_FINAL.pdf
 http://www.estcard.ee/publicweb/html/est/e-commerce.html#tehnilineinfo
 
-Licensed under MIT
+# Licensed under MIT
