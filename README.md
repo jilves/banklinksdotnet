@@ -1,4 +1,4 @@
-# BanklinksDotNet
+# BanklinksDotNet (Beta)
 .NET library for integrating Estonian bank link services.
 
 Currently supports the Estcard (estcard.ee) and IPizza (Swedbank, Seb, Danske, Nordea, Lhv, Krediidipank) protocols. Support for more protocols might be added in the future.
