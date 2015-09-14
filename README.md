@@ -29,7 +29,7 @@ _banklinkApi.Configure()
   .AddIPizzaBankConfigurations(new IPizzaConfiguration
   {
       // The BankId has to correspond with what is defined by the specific bank you are integrating.
-      // For production environments, these are currently "KREP" for Krediidipank, "LHV" for Lhv,
+      // For production environments, these are currently (14.09.2015) "KREP" for Krediidipank, "LHV" for Lhv,
       // "HP" for Swedbank, "SAMPOBANK" for Danske, "EYP" for Seb and "NORDEA" for Nordea.
       BankId = "GENIPIZZA",
       MerchantId = "uid100010",
