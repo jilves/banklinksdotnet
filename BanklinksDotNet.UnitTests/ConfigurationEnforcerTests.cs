@@ -27,7 +27,8 @@ namespace BanklinksDotNet.UnitTests
         [TestCase(true, false, false)]
         [TestCase(false, true, false)]
         [TestCase(false, false, false)]
-        public void EnforceFieldLengthValidation_Applies_Validation_Only_When_Configuration_Allows_It(bool globalConfigAllows, bool bankConfigAllows, bool expectedValidationCalled)
+        public void EnforceFieldLengthValidation_Applies_Validation_Only_When_Configuration_Allows_It(
+            bool globalConfigAllows, bool bankConfigAllows, bool expectedValidationCalled)
         {
             _globalConfigMock.SetupGet(mock => mock.EnableFieldLengthValidation).Returns(globalConfigAllows);
             _bankConfigMock.SetupGet(mock => mock.EnableFieldLengthValidation).Returns(bankConfigAllows);

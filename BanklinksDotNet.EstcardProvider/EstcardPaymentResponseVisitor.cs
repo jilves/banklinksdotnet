@@ -49,11 +49,11 @@ namespace BanklinksDotNet.EstcardProvider
                 new BankMessageField { OrderNr = null, FieldName = "mac", MaxLength = int.MaxValue },
             };
 
-            var bankRequest = new EstcardPaymentResponse(fields);
+            var paymentResponse = new EstcardPaymentResponse(fields);
 
-            _bankMessageMapper.SetPaymentResponseProperties(visitable, bankConfiguration, bankRequest);
+            _bankMessageMapper.SetPaymentResponseProperties(visitable, bankConfiguration, paymentResponse);
 
-            return bankRequest;
+            return paymentResponse;
         }
     }
 }

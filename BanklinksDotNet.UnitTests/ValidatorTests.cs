@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BanklinksDotNet.Exceptions;
 using BanklinksDotNet.ProviderBase;
 using Moq;
@@ -31,13 +34,6 @@ namespace BanklinksDotNet.UnitTests
         [Test]
         public void ValidateFieldLengths_Does_Not_Throw_When_Field_Lengths_Are_Below_Limit()
         {
-            Assert.DoesNotThrow(() => _validator.ValidateFieldLengths(_bankMessage));
-        }
-
-        [Test]
-        public void ValidateFieldLengths_Does_Not_Throw_When_Field_Value_Is_Null()
-        {
-            _parameters.First().Value = null;
             Assert.DoesNotThrow(() => _validator.ValidateFieldLengths(_bankMessage));
         }
 
