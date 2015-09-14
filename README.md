@@ -144,4 +144,8 @@ If the response Mac is invalid, an `InvalidMacException` is thrown.
 
 See `BanklinksDotNet.IntegrationTests` and `BankLinksDotNet.Demo` for more code samples though tests and the demo project are currently lacking.
 
+References:
+http://pangaliit.ee/images/files/Pangalingi_tehniline_spetsifikatsioon_2014_FINAL.pdf
+http://www.estcard.ee/publicweb/html/est/e-commerce.html#tehnilineinfo
+
 Licensed under MIT
