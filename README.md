@@ -46,7 +46,7 @@ _banklinkApi.Configure()
       MerchantsPrivateKey = () => new X509Certificate2("Certs/Estcard/merchant.pfx"),
   });
 ```
-### Creating post parameters for payment
+### Create post parameters for payment
 
 ```
 // Estcard
@@ -71,7 +71,7 @@ BankRequest bankRequest = _banklinkApi.CreateIPizzaPaymentRequest(new IPizzaPaym
 });
 ```
 
-### Creating post parameters for authentication
+### Create post parameters for authentication
 
 ```
 BankRequest bankRequest = _banklinkApi.CreateIPizzaAuthRequest(new IPizzaAuthRequestParams
@@ -123,7 +123,7 @@ BankRequest bankRequest2 = _banklinkApi.CreateIPizzaAuthRequest(new IPizzaAuthRe
 </html>
 ```
 
-### Parsing the response from the bank
+### Parse the response from the bank
 
 ```
 NameValueCollection parameters = System.Web.HttpContext.Current.Request.Params;
