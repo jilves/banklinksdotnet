@@ -1,4 +1,6 @@
-﻿namespace BanklinksDotNet.EstcardProvider
+﻿using System;
+
+namespace BanklinksDotNet.EstcardProvider
 {
     public static class GlobalConfigurationExtensions
     {
@@ -12,6 +14,13 @@
             // TODO: Validate to avoid > 1 EstcardConfigurations?
 
             return configuration.AddBankConfiguration(bankConfiguration);
+        }
+
+        public static IGlobalConfiguration AddEstcardConfiguration(this IGlobalConfiguration configuration, Func<EstcardConfiguration> bankConfigurationFunc)
+        {
+            // TODO: Validate to avoid > 1 EstcardConfigurations?
+
+            return configuration.AddBankConfiguration(bankConfigurationFunc);
         }
     }
 }

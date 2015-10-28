@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="BanklinkApiTests.cs" />
     <Compile Include="ConfigurationEnforcerTests.cs" />
+    <Compile Include="GlobalConfigurationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidatorTests.cs" />
   </ItemGroup>
