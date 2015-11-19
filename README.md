@@ -149,4 +149,8 @@ See `BanklinksDotNet.IntegrationTests` and `BankLinksDotNet.Demo` for more code 
 http://pangaliit.ee/images/files/Pangalingi_tehniline_spetsifikatsioon_2014_FINAL.pdf
 http://www.estcard.ee/publicweb/html/est/e-commerce.html#tehnilineinfo
 
+### Changelog:
+
+* [28/10/2015 - AddBankConfiguration, AddBankConfigurations Func overloads for configurations that might change during runtime.](https://github.com/jilves/banklinksdotnet/commit/a01403e35ba633043ee2f92eb132a7c6bfb9c6be)
+
 # Licensed under MIT
