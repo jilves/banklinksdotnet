@@ -55,11 +55,10 @@ foreach($projectName in $projectNames)
 
 # TODO: Support pushing multiple configurations
 $projectNames | %{ 
-    $nuspecFile = Get-ChildItem -Path $PSScriptRoot -Filter "$_.1.*.nupkg" | Select-Object -First 1
-    $shouldProceed = Read-Host "Attempting to push: '$nuspecFile', Enter 'Yes' to proceed."
-    if($shouldProceed -ne 'Yes') {
-        Exit
-    }
+    $nupkgFile = Get-ChildItem -Path $PSScriptRoot -Filter "$_.1.*.nupkg" | Select-Object -First 1
+    $shouldProceed = Read-Host "Attempting to push: '$nupkgFile', Enter 'Yes' to proceed."
 
-    & $NugetExe @("push", $nuspecFile, $NuGetAPIKey)
+    if($shouldProceed -eq 'Yes') {
+		& $NugetExe @("push", $nuspecFile, $NuGetAPIKey)
+    }
 }
