@@ -4,7 +4,7 @@
 	$NuGetAPIKey,
     [Parameter(Mandatory=$false, Position=2)]
     [string]
-    $MsbuildExe = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe",
+    $MsbuildExe = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe",
     [Parameter(Mandatory=$false, Position=3)]
     [string]
     # Assume nuget.exe is in Path variable

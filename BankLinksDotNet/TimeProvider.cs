@@ -4,6 +4,6 @@ namespace BanklinksDotNet
 {
     public class TimeProvider
     {
-        public virtual DateTime Now { get { return DateTime.Now; } }
+        public virtual DateTime Now => DateTime.Now;
     }
 }

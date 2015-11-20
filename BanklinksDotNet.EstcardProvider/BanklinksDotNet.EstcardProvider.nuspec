@@ -14,7 +14,7 @@
     <copyright>Copyright 2015</copyright>
     <tags></tags>
     <dependencies>
-      <!-- Leaving this empty does not resolve to highest version even thoughh nuget documentation says otherwise -->
+      <!-- Leaving this empty does not resolve to highest version even though nuget documentation says otherwise -->
         <dependency id="BanklinksDotNet" version="1.0.5801.32831" />
     </dependencies>
 </metadata>
