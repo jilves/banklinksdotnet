@@ -7,8 +7,7 @@
     $MsbuildExe = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe",
     [Parameter(Mandatory=$false, Position=3)]
     [string]
-    # Assume nuget.exe is in Path variable
-    $NugetExe = "nuget"
+    $NugetExe = ".nuget\nuget.exe"
 ) 
 
 
