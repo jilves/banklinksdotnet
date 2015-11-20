@@ -151,6 +151,8 @@ http://www.estcard.ee/publicweb/html/est/e-commerce.html#tehnilineinfo
 
 ### Changelog:
 
+* 19/11/2015 - Released new versions of nuget packages.
+* [19/11/2015 - Fixed an issue where nuget downloaded the oldest 1.0.0 BanklinksDotNet library as a dependency for IPizza and Estcard providers. This resulted in cryptic runtime errors](https://github.com/jilves/banklinksdotnet/commit/a15030af60f685d3dd70df1fe0d70c8a6b74c87f)
 * [28/10/2015 - AddBankConfiguration, AddBankConfigurations Func overloads for configurations that might change during runtime.](https://github.com/jilves/banklinksdotnet/commit/a01403e35ba633043ee2f92eb132a7c6bfb9c6be)
 
 # Licensed under MIT
