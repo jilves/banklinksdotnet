@@ -17,6 +17,11 @@ $projectNames = @('BankLinksDotNet', 'BanklinksDotNet.EstcardProvider', 'Banklin
 
 $liveProjectconfigurationNames = @("Nuget 4.5.1")
 
+if($liveProjectconfigurationNames.Length -ne 1)
+{
+	throw [System.NotSupportedException] "Pushing nuget packages for multiple confgigurations is not supported."
+}
+
 function Delete-BuildFolders($baseDir)
 {
     foreach($folderToDelete in @("bin", "obj"))
@@ -49,6 +54,7 @@ foreach($projectName in $projectNames)
     }
 }
 
+# TODO: Support pushing multiple configurations
 $projectNames | %{ 
     $nuspecFile = Get-ChildItem -Path $PSScriptRoot -Filter "$_.1.*.nupkg" | Select-Object -First 1
     $shouldProceed = Read-Host "Attempting to push: '$nuspecFile', Enter 'Yes' to proceed."
